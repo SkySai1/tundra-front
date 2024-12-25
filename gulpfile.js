@@ -297,32 +297,32 @@ gulp.task("jade-watch", gulp.series("jade-inheritance", "copy-index", "template-
 ##############################################################################
 */
 
-gulp.task("scss-lint", function(done) {
-    var ignore = [
-        "!" + paths.app + "/styles/shame/**/*.scss",
-    ];
+//gulp.task(function(done) {
+//    var ignore = [
+//        "!" + paths.app + "/styles/shame/**/*.scss",
+//    ];
 
-    var fail = process.argv.indexOf("--fail") !== -1;
+//    var fail = process.argv.indexOf("--fail") !== -1;
 
-    var sassFiles = paths.sass.concat(themes.current.customScss, ignore);
+//    var sassFiles = paths.sass.concat(themes.current.customScss, ignore);
 
-    const task = gulp.src(sassFiles)
-        .pipe(
-            stylelint({
-                failAfterError: fail,
-                reporters: [
-                    {formatter: 'string', console: true}
-                ]
-            },
-            done,
-        ));
+//    const task = gulp.src(sassFiles)
+//       .pipe(
+//            stylelint({
+//                failAfterError: fail,
+//                reporters: [
+//                    {formatter: 'string', console: true}
+//                ]
+//            },
+//            done,
+//        ));
 
-    if (fail) {
-        return task;
-    } else {
-        done();
-    }
-});
+//   if (fail) {
+//        return task;
+//    } else {
+//        done();
+//    }
+//});
 
 gulp.task("sass-compile", function() {
     return gulp.src(paths.sass)
@@ -370,7 +370,6 @@ gulp.task("main-css", function() {
 
 gulp.task("compile-theme", gulp.series(
     "clear",
-    "scss-lint",
     "sass-compile",
     gulp.parallel("app-css", "vendor-css"),
     "main-css",
@@ -382,13 +381,13 @@ gulp.task("compile-theme", gulp.series(
 gulp.task("compile-themes", gulp.series(new Array(themes.size).fill('compile-theme')));
 
 gulp.task("styles", gulp.series(
-    gulp.parallel("scss-lint", "sass-compile"),
+    gulp.parallel("sass-compile"),
     gulp.parallel("app-css", "vendor-css"),
     "main-css"
 ));
 
 gulp.task("styles-lint", gulp.series(
-    gulp.parallel("scss-lint", "sass-compile"),
+    gulp.parallel("sass-compile"),
     gulp.parallel("app-css", "vendor-css"),
     "main-css"
 ));

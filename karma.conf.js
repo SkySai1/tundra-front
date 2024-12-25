@@ -85,11 +85,11 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'ChromeHeadless', 'ChromeHeadlessCI'],
+    browsers: ['FirefoxHeadless'],
     customLaunchers: {
-        ChromeHeadlessCI: {
-            base: 'ChromeHeadless',
-            flags: ['--no-sandbox']
+        FirefoxHeadless: {
+            base: 'Firefox',
+            flags: ['-headless']
         }
     },
 
