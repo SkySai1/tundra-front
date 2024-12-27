@@ -13,7 +13,7 @@
     "defaultLoginEnabled": true,
     "publicRegisterEnabled": ${PUBLIC_REGISTER_ENABLED},
     "feedbackEnabled": true,
-    "supportUrl": "https://tuntra.volutega.com",
+    "supportUrl": "${SUPPORT_URL}",
     "privacyPolicyUrl": null,
     "termsOfServiceUrl": null,
     "maxUploadFileSize": null,
