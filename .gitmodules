@@ -1,5 +1,5 @@
 [submodule "submodules/gulp-scss-lint"]
-	path = submodules/gulp-scss-lint_mod
+	path = submodules/gulp-scss-lint
 	url = https://github.com/SkySai1/gulp-scss-lint_mod.git
 [submodule "submodules/es5-ext"]
 	path = submodules/es5-ext
