@@ -31,6 +31,17 @@ $dropdown-width: 260px;
             }
         }
     }
+    //УДАЛИТЬ
+    .info_block {
+        h3 {
+            color: rgb(0, 255, 228); // Берюзово-светодиодный цвет
+            font-size: 1.5rem; // Размер шрифта
+            font-weight: bold; // Жирный шрифт для акцента
+            margin-bottom: .1rem; // Отступ снизу
+            margin-left: 2em;
+        }
+    }
+    //УДАЛИТЬ
     .nav-left {
         .logo {
             padding: .3rem .4rem;
