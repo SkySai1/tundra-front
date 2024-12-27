@@ -1,6 +1,9 @@
-[submodule "submodules/gulp-scss-lint_mod"]
+[submodule "submodules/gulp-scss-lint"]
 	path = submodules/gulp-scss-lint_mod
 	url = https://github.com/SkySai1/gulp-scss-lint_mod.git
-[submodule "submodules/es5-ext_mod"]
-	path = submodules/es5-ext_mod
+[submodule "submodules/es5-ext"]
+	path = submodules/es5-ext
 	url = https://github.com/SkySai1/es5-ext_mod.git
+[submodule "submodules/taiga-html-editor"]
+	path = submodules/taiga-html-editor
+	url = https://github.com/SkySai1/taiga-html-editor
