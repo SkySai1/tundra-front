@@ -13,6 +13,7 @@
     "defaultLoginEnabled": true,
     "publicRegisterEnabled": ${PUBLIC_REGISTER_ENABLED},
     "feedbackEnabled": true,
+    "infoBlockEnabled": ${TUNDRA_INFO_BLOCK_ENABLED},
     "supportUrl": "${SUPPORT_URL}",
     "privacyPolicyUrl": null,
     "termsOfServiceUrl": null,

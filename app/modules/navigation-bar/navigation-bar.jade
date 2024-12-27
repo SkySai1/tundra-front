@@ -27,6 +27,9 @@ nav.navbar(ng-if="vm.isEnabledHeader")
             tg-dropdown-project-list
             active="vm.active == 'projects' || vm.active == 'project'"
         )
+        //-Удалить потом
+        .info_block(ng-if="vm.isInfoBlockEnabled")
+            h3 TUNDRA_FORK_EDITION
 
     .nav-right.center(ng-if="!vm.isAuthenticated")
         a.login(

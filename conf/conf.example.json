@@ -16,6 +16,7 @@
     "publicRegisterEnabled": true,
     "feedbackEnabled": true,
     "supportUrl": "https://community.taiga.io/",
+    "infoBlockEnabled": false,
     "privacyPolicyUrl": null,
     "termsOfServiceUrl": null,
     "maxUploadFileSize": null,

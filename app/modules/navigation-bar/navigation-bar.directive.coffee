@@ -18,6 +18,8 @@ NavigationBarDirective = (currentUserService, navigationBarService, locationServ
         scope.vm.customSupportUrl = config.get("supportUrl")
         scope.vm.isFeedbackEnabled = config.get("feedbackEnabled")
 
+        scope.vm.isInfoBlockEnabled = config.get("infoBlockEnabled")
+
         loadUserPilot = () =>
             userPilotIframe = document.querySelector('#userpilot-resource-centre-frame')
 
