@@ -1,7 +1,7 @@
 {
-  "name": "TaigaIO",
-  "version": "6.8.1",
-  "description": "Taiga project management system (frontend)",
+  "name": "tundra",
+  "version": "0.0.1",
+  "description": "Tundra as Taiga-fork project management system (frontend)",
   "main": "index.js",
   "keywords": [
     "Taiga",
@@ -13,12 +13,12 @@
   "license": "AGPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "https://github.com/taigaio/taiga-front.git"
+    "url": "git+https://github.com/SkySai1/tundra-front.git"
   },
   "scripts": {
     "scss-lint": "gulp scss-lint --fail",
     "test": "./node_modules/karma/bin/karma start",
-    "e2e": "./node_modules/.bin/babel-node run-e2e.js",
+    "e2e": "babel-node run-e2e.js",
     "start": "npx gulp",
     "ci:test": "npx gulp deploy && ./node_modules/karma/bin/karma start --single-run --browsers=ChromeHeadlessCI"
   },
@@ -65,7 +65,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^5.1.0",
-    "gulp-scss-lint": "1.0.0",
+    "gulp-scss-lint": "file:submodules/gulp-scss-lint",
     "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-stylelint": "^13.0.0",
@@ -119,6 +119,7 @@
     "core-js": "^3.39.0",
     "dom-autoscroller": "^2.3.4",
     "dragula": "^3.7.2",
+    "es5-ext": "file:submodules/es5-ext",
     "Flot": "git+https://github.com/flot/flot.git#v0.8.3",
     "flot-axislabels": "git+https://git@github.com/juanfran/flot-axislabels.git",
     "gulp-class-prefix": "^1.0.1",
@@ -126,6 +127,7 @@
     "intro.js": "^2.3.0",
     "jquery": "^2.2.3",
     "jquery.flot.tooltip": "git+https://git@github.com/krzysu/flot.tooltip.git",
+    "json-schema": "^0.4.0",
     "l.js": "git+https://git@github.com/juanfran/l.js.git",
     "lodash": "^4.16.4",
     "messageformat": "^1.0.2",
@@ -134,6 +136,11 @@
     "pikaday": "^1.8.2",
     "raven-js": "^3.7.0",
     "showdown": "^1.4.3",
-    "taiga-html-editor": "https://github.com/taigaio/taiga-html-editor#stable"
-  }
+    "taiga-html-editor": "file:./submodules/taiga-html-editor/",
+    "url-parse": "^1.5.10"
+  },
+  "bugs": {
+    "url": "https://github.com/SkySai1/tundra-front/issues"
+  },
+  "homepage": "https://github.com/SkySai1/tundra-front#readme"
 }
