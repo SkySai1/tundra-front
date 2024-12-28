@@ -19,7 +19,7 @@ div.wrapper(
     )
     section.main.wiki.wiki-main(ng-if="attachmentsReady")
         header
-            h1(translate="PROJECT.SECTION.WIKI")
+            h1 {{pageTitle || ('PROJECT.SECTION.WIKI' | translate)}}
 
         tg-wiki-wysiwyg(model="wiki")
 
