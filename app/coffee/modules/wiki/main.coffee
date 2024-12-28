@@ -53,10 +53,14 @@ class WikiDetailController extends mixOf(taiga.Controller, taiga.PageMixin)
         @scope.$on "attachments:loaded", () =>
             @scope.attachmentsReady = true
 
+        @scope.pageTitle = null  # Init empty variable
+
         promise = @.loadInitialData()
 
         # On Success
-        promise.then () => @._setMeta()
+        promise.then () => 
+            @._setMeta()
+            @._setPageTitle()
 
         # On Error
         promise.then null, @.onInitialDataError.bind(@)
@@ -73,6 +77,11 @@ class WikiDetailController extends mixOf(taiga.Controller, taiga.PageMixin)
         })
 
         @appMetaService.setAll(title, description)
+
+    # Update the page title and load attachments
+    _setPageTitle: ->
+        @scope.pageTitle = @scope.wiki?.title or @translate.instant("WIKI.PAGE_TITLE")
+
 
     loadAttachments: ->
         @attachmentsFullService.loadAttachments('wikipage', @scope.wikiId, @scope.projectId)
@@ -94,8 +103,11 @@ class WikiDetailController extends mixOf(taiga.Controller, taiga.PageMixin)
             @scope.wiki = wiki
             @scope.wikiId = wiki.id
 
-            @.loadAttachments()
+            if @scope.pagetitle?
+                @scope.wiki?.title = @scope.pagetitle
+                @._setPageTitle()  # Set new Page Titile
 
+            @.loadAttachments()
             return @scope.wiki
 
         promise.then null, (xhr) =>
@@ -113,10 +125,10 @@ class WikiDetailController extends mixOf(taiga.Controller, taiga.PageMixin)
             @scope.wiki = @model.make_model("wiki", data)
             return @scope.wiki
 
+
     loadWikiLinks: ->
         return @rs.wiki.listLinks(@scope.projectId).then (wikiLinks) =>
             @scope.wikiLinks = wikiLinks
-
             for link in @scope.wikiLinks
                 link.url = @navUrls.resolve("project-wiki-page", {
                     project: @scope.projectSlug
@@ -124,6 +136,9 @@ class WikiDetailController extends mixOf(taiga.Controller, taiga.PageMixin)
                 })
 
             selectedWikiLink = _.find(wikiLinks, {href: @scope.wikiSlug})
+            # Try to attach selected wikilink with page titile
+            if selectedWikiLink?
+                @scope.pagetitle = selectedWikiLink.title
 
     loadInitialData: ->
         project = @.loadProject()
