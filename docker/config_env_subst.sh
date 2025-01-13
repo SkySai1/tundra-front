@@ -54,6 +54,19 @@ if [[ -z "${DEBUG}" ]]; then
     export DEBUG="false"
 fi
 
+#Non Tundra Info Block
+
+if [[ -z "${TUNDRA_INFO_BLOCK_ENABLED}" ]]; then
+    export TUNDRA_INFO_BLOCK_ENABLED="false"
+fi
+
+#Support Url
+
+if [[ -z "${SUPPORT_URL}" ]]; then
+    export SUPPORT_URL="http://localhost:9000"
+fi
+
+
 contribs=$( IFS=,; echo "[${contribs[*]}]" )
 
 export CONTRIB_PLUGINS=$contribs
