@@ -265,6 +265,27 @@ class UserStoryDetailController extends mixOf(taiga.Controller, taiga.PageMixin)
 
         return @rs.userstories.unwatch(@scope.usId).then(onSuccess, onError)
 
+    copyUserStory: ->
+        data = {
+            include_tasks: true
+            keep_fields: ["subject", "description", "milestone"]
+        }
+
+        onSuccess = (newUserStory) =>
+            userStoryRef = newUserStory?.ref or newUserStory?.get?("ref")
+
+            if userStoryRef
+                ctx = {project: @scope.project.slug, ref: userStoryRef}
+                destination = @navUrls.resolve("project-userstories-detail", ctx)
+                @location.url(destination)
+
+            @confirm.success(@translate.instant("US.COPY_WITH_TASKS_SUCCESS"))
+
+        onError = =>
+            @confirm.notify("error")
+
+        return @rs.userstories.copyWithTasks(@scope.usId, data).then(onSuccess, onError)
+
     onTribeInfo: ->
         publishTitle = @translate.instant("US.TRIBE.PUBLISH_MORE_INFO_TITLE")
         image = $('<img />')

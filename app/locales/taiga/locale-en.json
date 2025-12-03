@@ -1323,6 +1323,8 @@
         "SECTION_NAME": "User story",
         "LINK_TASKBOARD": "Taskboard",
         "TITLE_LINK_TASKBOARD": "Go to the taskboard",
+        "COPY_WITH_TASKS": "Copy with tasks",
+        "COPY_WITH_TASKS_SUCCESS": "User story duplicated with tasks",
         "TOTAL_POINTS": "total points",
         "ADD": "user story",
         "ADD_BULK": "Add some new user stories in bulk",

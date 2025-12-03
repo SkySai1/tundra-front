@@ -89,6 +89,12 @@ resourceProvider = ($repo, $http, $urls, $storage, $q) ->
         url = $urls.resolve("userstory-unwatch", userStoryId)
         return $http.post(url)
 
+    service.copyWithTasks = (userStoryId, data={}) ->
+        url = $urls.resolve("userstory-copy", userStoryId)
+        payload = _.extend({include_tasks: true}, data)
+        return $http.post(url, payload).then (response) ->
+            return response.data
+
     service.bulkUpdateBacklogOrder = (projectId, milestoneId, afterUserstoryId, beforeUserstoryId, bulkUserstories) ->
         url = $urls.resolve("bulk-update-us-backlog-order")
         params = {project_id: projectId, bulk_userstories: bulkUserstories}
