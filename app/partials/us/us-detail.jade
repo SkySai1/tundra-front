@@ -190,6 +190,17 @@ div.wrapper(
                 obj-type="us"
                 tg-check-permission="modify_us"
             )
+            button.ticket-copy-button.btn-small(
+                variant="secondary"
+                type="button"
+                ng-click="ctrl.copyUserStory()"
+                tg-check-permission="add_us"
+            )
+                tg-svg(
+                    svg-icon="icon-duplicate"
+                    svg-title-translate="US.COPY_WITH_TASKS"
+                )
+                span(translate="US.COPY_WITH_TASKS")
             tg-us-team-requirement-button(
                 ng-model="us"
                 tg-check-permission="modify_us"

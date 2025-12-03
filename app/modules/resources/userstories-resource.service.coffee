@@ -59,6 +59,13 @@ Resource = (urlsService, http) ->
             .then (result) ->
                 return Immutable.fromJS(result.data)
 
+    service.copyWithTasks = (userStoryId, data={}) ->
+        url = urlsService.resolve("userstory-copy", userStoryId)
+        payload = _.extend({include_tasks: true}, data)
+        return http.post(url, payload)
+            .then (result) ->
+                return result.data
+
     return () ->
         return {"userstories": service}
 
